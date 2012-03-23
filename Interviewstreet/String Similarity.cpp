@@ -5,7 +5,7 @@
   
   Solution:
     At first look this problem can be achieve using a naive algorithm, two for's and then check and count
-    the similarity for each substring. But it's O(n^2), so this just passed 6/10 of the testcases at most.
+    the similarity for each substring. But it's O(n^2), so it just passed 6/10 of the testcases at most.
     So we need an algorithm that runs in O(n), and here's where the Z Algorithm appears on the scene.
     Z[i] = length of the longest prefix of S.str(i,n) that is also prefix of S.str(0,n).
     So the answer is  (S.length + ∑ z[i] from i - n).
