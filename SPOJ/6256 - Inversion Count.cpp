@@ -1,5 +1,16 @@
+/*
+  6256 - Inversion Count
+  SPOJ
+  Esteban Arango Medina
+  
+  Solution:
+  	Make a new array of size 'MaxElement' of the given array, then, back to front get the sum of each until inv[i]-1 (no including i),
+  	and add 1 to postion inv[i]. Then print the sum. And that's the number of inversions.
+    Fenwick tree.
 
-using namespace std;
+   Notes.
+   	http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=binaryIndexedTrees
+*/
 #include <algorithm>
 #include <iostream>
 #include <iterator>
@@ -20,7 +31,7 @@ using namespace std;
 #include <list>
 #include <map>
 #include <set>
-
+using namespace std;
 
 int get(vector<int> *tree,int i){
 	int sum = 0;

@@ -4,7 +4,7 @@
   Esteban Arango Medina
   
   Solution:
-    Simply show the advantage of Java over C++ = BigInteger. :P
+    Simply shows the advantage of Java over C++ = BigInteger. :P
 */
 import java.io.BufferedReader;
 import java.io.File;
