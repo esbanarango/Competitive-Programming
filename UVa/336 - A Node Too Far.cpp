@@ -4,7 +4,7 @@
   Esteban Arango Medina
 
     Solution.
-        This is a 'simple' BFS or DFS problem, at the beginning I approached it by using DFS but I got TLE
+        This is a 'simple' BFS or 'DFS' problem, at the beginning I approached it by using DFS but I got TLE
         so I change it to BFS and result easier. First, for the read I had to use a map, cuz' the nodes could
         be greater than the total number of nodes. (Ej. 3 nodes = 20233,892832,3289), then I used another map
         to count the number of moves from the query node to every other node in the graph and finally I count
