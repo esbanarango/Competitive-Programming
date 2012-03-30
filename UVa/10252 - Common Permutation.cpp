@@ -2,15 +2,34 @@
   10252 - Common Permutation
   UVa Online Judge
   Esteban Arango Medina
-  marranoparael31@gmail.com
+
+  Solution.
+    Organize both strings and compare them, if a[i]==b[j] add it to the string 'k' (response), if not, 
+    then increment the string where a[i]<b[j] or viceversa.
+
 */
 
 
-#include<iostream>
 #include <algorithm>
-#include<string>
-#include<vector>
-
+#include <iostream>
+#include <iterator>
+#include <numeric>
+#include <sstream>
+#include <fstream>
+#include <cassert>
+#include <climits>
+#include <cstdlib>
+#include <cstring>
+#include <string>
+#include <cstdio>
+#include <vector>
+#include <cmath>
+#include <queue>
+#include <deque>
+#include <stack>
+#include <list>
+#include <map>
+#include <set>
 using namespace std;
 
 
@@ -29,20 +48,20 @@ int main(){
           }
           string k="";
           for(int i=0, j=0;i<tamA && j<tamB;){
-                            if(a[i]==b[j]){
-                                     k+= a[i];
-                                     i++;
-                                     j++;
-                            }else{
-                                  while (a[i] < b[j]){
-                                        ++i;
-                                        if (i == tamA) break;
-                                  }
-                                  while (b[j] < a[i]){
-                                        ++j;
-                                        if (j == tamB) break;
-                                  }
-                            }
+            if(a[i]==b[j]){
+                     k+= a[i];
+                     i++;
+                     j++;
+            }else{
+                  while (a[i] < b[j]){
+                        ++i;
+                        if (i == tamA) break;
+                  }
+                  while (b[j] < a[i]){
+                        ++j;
+                        if (j == tamB) break;
+                  }
+            }
           }
           cout<<k<<endl; 
     }

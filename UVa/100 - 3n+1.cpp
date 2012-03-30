@@ -4,10 +4,29 @@
   Esteban Arango Medina
   marranoparael31@gmail.com
 */
+#include <algorithm>
+#include <iostream>
+#include <iterator>
+#include <numeric>
+#include <sstream>
+#include <fstream>
+#include <cassert>
+#include <climits>
+#include <cstdlib>
+#include <cstring>
+#include <string>
+#include <cstdio>
+#include <vector>
+#include <cmath>
+#include <queue>
+#include <deque>
+#include <stack>
+#include <list>
+#include <map>
+#include <set>
+using namespace std;
 
-#include<iostream>
-
-int main(int argc, char *argv[]){
+int main(){
     
     int length = 0;    
     int lengthTemp = 0;
