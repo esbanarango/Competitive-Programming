@@ -1,4 +1,8 @@
-using namespace std;
+/*
+ID: marrano1
+PROG: test
+LANG: C++
+*/
 #include <algorithm>
 #include <iostream>
 #include <iterator>
@@ -19,10 +23,13 @@ using namespace std;
 #include <list>
 #include <map>
 #include <set>
+using namespace std;
 
 int main(){
-	long double n;
-	cin>>n;
-	cout<<(3*(pow(n,2))-n)/2;
+    freopen("test.in", "r", stdin);
+    freopen("test.out", "w", stdout);
+    int a, b;
+    cin >> a >> b;
+    cout << a+b << endl;
     return 0;
 }
