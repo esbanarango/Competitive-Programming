@@ -4,8 +4,8 @@
   Esteban Arango Medina
   marranoparael31@gmail.com
 */
-#include<iostream>
-#include<math.h>
+#include <iostream>
+#include <math.h>
 
 using namespace std;
 
