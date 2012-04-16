@@ -5,9 +5,9 @@
   marranoparael31@gmail.com
 */
 
-#include<iostream>
-#include<string>
-#include<math.h>
+#include <iostream>
+#include <string>
+#include <math.h>
 
 using namespace std;
 
