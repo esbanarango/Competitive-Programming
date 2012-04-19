@@ -8,7 +8,7 @@
 
 //WHAT A UGLY CODE!!!!
 
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
