@@ -5,8 +5,8 @@
   marranoparael31@gmail.com
 */
 
-#include<string>
-#include<iostream>
+#include <string>
+#include <iostream>
 
 using namespace std;
 
