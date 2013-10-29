@@ -13,3 +13,6 @@ Almost all of them in c++.
    * [TJU](http://acm.tju.edu.cn/toj/)
    * [USACO](http://train.usaco.org/usacogate)
    * [TopCoder](http://community.topcoder.com/tc)
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/esbanarango/competitive-programming/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
