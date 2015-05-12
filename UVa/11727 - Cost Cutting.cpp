@@ -39,9 +39,15 @@ typedef map <string,string> mss;
 
 
 int main(){
-  freopen("in.in", "r", stdin);
-  freopen("out.out", "w", stdout);
-
+  // freopen("in.in", "r", stdin);
+  int n,i=1;
+  scanf("%d",&n);
+  while(n--){
+    vi salaries(3);
+  	scanf("%d %d %d", &salaries[0], &salaries[1], &salaries[2]);
+    sort(salaries.begin(), salaries.end());
+    printf("Case %d: %d\n",i++,salaries[1]);
+  }
  return 0;
 
 }
