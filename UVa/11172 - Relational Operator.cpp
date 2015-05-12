@@ -1,10 +1,5 @@
 /*
-  10812 - Beat the Spread!
-  UVa Online Judge
   Esteban Arango Medina
-
-    Solution.
-      Ad-hoc.
 */
 #include <algorithm>
 #include <iostream>
@@ -19,6 +14,7 @@
 #include <string>
 #include <cstdio>
 #include <vector>
+#include <bitset>
 #include <cmath>
 #include <queue>
 #include <deque>
@@ -29,25 +25,32 @@
 using namespace std;
 typedef long long ll;
 typedef pair<int,int> ii;
+typedef pair<string,int> si;
+typedef pair<int,ii> iii;
+typedef vector <si> vsi;
 typedef vector <ii> vii;
 typedef vector <int> vi;
+typedef vector <char> vc;
+typedef vector <string> vs;
+typedef map <string,vs> msvs;
+typedef map <string,int> msi;
+typedef map <string,string> mss;
 #define INF 1000000000
 
 
 int main(){
-    int n;scanf("%d",&n);
-    while(n--){
-        int s,t,x,y;
-        scanf("%d %d",&s,&t);
-        y=abs(s-t)/2;
-        x=s-y;
-        if((x+y==s) && (abs(x-y)==t))
-            printf("%d %d\n",max(x,y),min(x,y));
-        else
-            printf("impossible\n");
-
-    }
-
+  // freopen("in.in", "r", stdin);
+  int n,a,b;
+  scanf("%d",&n);
+  while(n--){
+  	scanf("%d %d", &a, &b);
+  	if(a>b)
+  		printf(">\n");
+  	else if(a<b)
+  		printf("<\n");
+  	else
+  		printf("=\n");
+  }
  return 0;
 
 }
