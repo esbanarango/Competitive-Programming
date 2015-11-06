@@ -8,7 +8,7 @@ Almost all of them in c++.
    * [Live Archive](http://livearchive.onlinejudge.org/)
    * [PKU](http://poj.org/)
    * [CodeForces](http://codeforces.com/)
-   * [Interviewstreet](https://www.interviewstreet.com/)
+   * [Hackerrank](https://www.hackerrank.com/)
    * [Sphere Online Judge](http://www.spoj.pl/)
    * [TJU](http://acm.tju.edu.cn/toj/)
    * [USACO](http://train.usaco.org/usacogate)
