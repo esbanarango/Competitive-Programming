@@ -1,3 +1,5 @@
+*/*.in
+*/*.out
 Uva/*
 !Uva/*.cpp
 !Uva/*.c
