@@ -1,12 +1,17 @@
 /*
-  793 - Network Connections
-  UVa Online Judge
+  Components in a graph (50 Points)
+  HackerRank
   Esteban Arango Medina
 
-    Solution.
-        Perfect use case for Union-Find Disjoint Sets.
+  Solution:
+    A small change when initializing the `setSize` array of the UFDS data structure.
+    We need to set it to -1 in order to properly get the smallest connected component.
 
+  Notes.
+    The Kadane's algorithm
+      http://codeforces.com/blog/entry/13713
 */
+
 #include <algorithm>
 #include <iostream>
 #include <iterator>
@@ -50,7 +55,7 @@ private:
   int numSets;
 public:
   UnionFind(int N) {
-    setSize.assign(N, 1); numSets = N; rank.assign(N, 0);
+    setSize.assign(N, -1); numSets = N; rank.assign(N, 0);
     p.assign(N, 0); for (int i = 0; i < N; i++) p[i] = i; }
   int findSet(int i) { return (p[i] == i) ? i : (p[i] = findSet(p[i])); }
   bool isSameSet(int i, int j) { return findSet(i) == findSet(j); }
@@ -58,37 +63,38 @@ public:
     if (!isSameSet(i, j)) { numSets--;
     int x = findSet(i), y = findSet(j);
     // rank is used to keep the tree short
-    if (rank[x] > rank[y]) { p[y] = x; setSize[x] += setSize[y]; }
-    else                   { p[x] = y; setSize[y] += setSize[x];
-                             if (rank[x] == rank[y]) rank[y]++; } } }
+    if (setSize[x] == -1) setSize[x] = 1;
+    if (setSize[y] == -1) setSize[y] = 1;
+    if (rank[x] > rank[y]) {
+      p[y] = x; setSize[x] += setSize[y];
+    }else{
+      p[x] = y; setSize[y] += setSize[x];
+      if (rank[x] == rank[y]) rank[y]++; }
+    }
+  }
   int numDisjointSets() { return numSets; }
   int sizeOfSet(int i) { return setSize[findSet(i)]; }
 };
 
-int main(){
+int main() {
   // freopen("in.in", "r", stdin);
-  // freopen("out.out", "w", stdout);
-
-  int cases, computers, c1, c2, sucess, fail;
-  string line;
-
-  scanf("%d",&cases);
-  while(cases--) {
-    sucess = fail = 0;
-    scanf("\n%d\n",&computers);
-    UnionFind UF(computers+1);
-    char ch;
-    while(true){
-      if(!getline(cin,line) || line.empty()) break;
-      sscanf(line.c_str(),"%c %d %d",&ch,&c1,&c2);
-      if(ch == 'c') {
-        UF.unionSet(c1, c2);
-      }else {
-        UF.isSameSet(c1, c2) ? sucess++ : fail++;
-      }
-    }
-    printf("%d,%d\n", sucess, fail);
-    if(cases != 0) printf("\n");
+  int smallest, largest, g, b, sizeG, sizeB, n, sz;
+  smallest = INF;
+  largest = 0;
+  UnionFind UF(31000);
+  scanf("%d",&n);
+  for (int i = 0; i < n; ++i){
+    scanf("%d %d", &g, &b);
+    UF.unionSet(g, b);
   }
+  for (int i = 1; i < (n*2)+1; ++i){
+    sz = UF.sizeOfSet(i);
+    if(sz != -1){
+      largest = max(largest,sz);
+      smallest = min(smallest,sz);
+    }
+  }
+
+  printf("%d %d", smallest, largest);
   return 0;
 }
