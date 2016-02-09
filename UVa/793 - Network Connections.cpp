@@ -44,9 +44,9 @@ typedef map <string,string> mss;
 #define INF 1000000000
 
 // Union-Find Disjoint Sets Library written in OOP manner, using both path compression and union by rank heuristics
-class UnionFind {                                              // OOP style
+class UnionFind {
 private:
-  vi p, rank, setSize;                       // remember: vi is vector<int>
+  vi p, rank, setSize;
   int numSets;
 public:
   UnionFind(int N) {
