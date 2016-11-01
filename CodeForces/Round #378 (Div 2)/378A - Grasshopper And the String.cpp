@@ -36,11 +36,25 @@ typedef map <string,vs> msvs;
 typedef map <string,int> msi;
 typedef map <string,string> mss;
 #define INF 1000000000
+#define SWAP(a,b) {int t=a; a=b; b=t;}
 
 int main(){
-  freopen("in.in", "r", stdin);
-  freopen("out.out", "w", stdout);
+  // freopen("in.in", "r", stdin);
+  // freopen("out.out", "w", stdout);
 
- return 0;
-
+  string line;
+  int min_jumps = -1, current_jump=1;
+  getline(cin, line);
+  int size = line.size();
+  for (int i = 0; i < size; ++i){
+    if(line[i] == 'A' || line[i] == 'E' || line[i] == 'I' || line[i] == 'O' || line[i] == 'U' || line[i] == 'Y'){
+      min_jumps = max(current_jump,min_jumps);
+      current_jump = 1;
+    }else{
+      current_jump++;
+    }
+  }
+  min_jumps = max(current_jump,min_jumps);
+  printf("%d\n",min_jumps);
+  return 0;
 }

@@ -36,11 +36,28 @@ typedef map <string,vs> msvs;
 typedef map <string,int> msi;
 typedef map <string,string> mss;
 #define INF 1000000000
+#define SWAP(a,b) {int t=a; a=b; b=t;}
 
 int main(){
-  freopen("in.in", "r", stdin);
-  freopen("out.out", "w", stdout);
-
- return 0;
-
+  // freopen("in.in", "r", stdin);
+  // freopen("out.out", "w", stdout);
+  int n,l,r,k=0;
+  ll current_max=0,total_l=0,total_r=0;
+  scanf("%d",&n);
+  vi L(n),R(n);
+  for(int i = 0; i < n; ++i){
+    scanf("%d %d",&L[i],&R[i]);
+    total_l += L[i];
+    total_r += R[i];
+  }
+  current_max = abs(total_l - total_r);
+  for (int i = 0; i < n; ++i){
+    ll new_max = abs((total_l-L[i]+R[i])-(total_r-R[i]+L[i]));
+    if(new_max>current_max){
+      current_max=new_max;
+      k=i+1;
+    }
+  }
+  printf("%d\n",k);
+  return 0;
 }
