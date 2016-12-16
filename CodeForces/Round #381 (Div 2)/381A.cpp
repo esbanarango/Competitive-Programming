@@ -36,12 +36,25 @@ typedef vector <string> vs;
 typedef map <string,vs> msvs;
 typedef map <string,int> msi;
 typedef map <string,string> mss;
-#define INF 1000000000
+#define INF 10000000000
 
 int main(){
   freopen("in.in", "r", stdin);
-  freopen("out.out", "w", stdout);
+  // freopen("out.out", "w", stdout);
 
- return 0;
-
+  ll n, a, b, c, k, min_r;
+  cin>>n>>a>>b>>c;
+  if(n%4 == 0)
+    printf("0\n");
+  else{
+    for (k = 1; (n+k)%4 != 0; ++k);
+    printf("k: %lld\n", k);
+    min_r = k * a;
+    if(k == 2)
+      min_r = min(min_r,b);
+    if(k == 3)
+      min_r = min(min_r, min(b+a,c));
+    cout<<min_r;
+  }
+  return 0;
 }

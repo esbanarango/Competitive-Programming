@@ -35,13 +35,30 @@ typedef vector <char> vc;
 typedef vector <string> vs;
 typedef map <string,vs> msvs;
 typedef map <string,int> msi;
+typedef map <int,int> mii;
 typedef map <string,string> mss;
 #define INF 1000000000
 
-int main(){
-  freopen("in.in", "r", stdin);
-  freopen("out.out", "w", stdout);
+int main() {
+  // freopen("in.in", "r", stdin);
+  int t, n, m, ice, id_1, id_2; scanf("%d",&t);
 
- return 0;
-
+  for(int test = 0; test < t; test++) {
+    scanf("%d",&m);
+    scanf("%d",&n);
+    mii seen;
+    for (int i = 0; i < n; i++){
+      scanf("%d", &ice);
+      if(seen.count(m-ice)){
+        id_1 = i + 1;
+        id_2 = seen[m-ice];
+        if(id_2 < id_1)
+          swap(id_1,id_2);
+        printf("%d %d\n", id_1, id_2);
+      }else{
+        seen[ice] = i + 1;
+      }
+    }
+  }
+  return 0;
 }

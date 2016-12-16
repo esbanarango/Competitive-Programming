@@ -17,7 +17,6 @@
 #include <bitset>
 #include <cmath>
 #include <queue>
-#include <tuple>
 #include <deque>
 #include <stack>
 #include <list>
@@ -30,7 +29,7 @@ typedef pair<string,int> si;
 typedef pair<int,ii> iii;
 typedef vector <si> vsi;
 typedef vector <ii> vii;
-typedef vector <int> vi;
+typedef vector <ll> vll;
 typedef vector <char> vc;
 typedef vector <string> vs;
 typedef map <string,vs> msvs;
@@ -38,10 +37,16 @@ typedef map <string,int> msi;
 typedef map <string,string> mss;
 #define INF 1000000000
 
-int main(){
-  freopen("in.in", "r", stdin);
-  freopen("out.out", "w", stdout);
-
- return 0;
-
+int main() {
+  // freopen("in.in", "r", stdin);
+  ll n; scanf("%lld",&n);
+  vll nums(n);
+  for (int i = 0; i < n; ++i)
+    scanf("%lld",&nums[i]);
+  sort (nums.begin(), nums.end());
+  ll min_sum = INF;
+  for (int i = 0, j = n-1; i < j; ++i, j--)
+    min_sum = min(min_sum, nums[i] + nums[j]);
+  printf("%lld\n",min_sum);
+  return 0;
 }

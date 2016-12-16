@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-const int LIMIT = 100000000;
+const int LIMIT = 100001;
 
 int sieve[LIMIT + 1]; // Inicializar con 0’s.
 int primes[LIMIT + 1];
@@ -16,7 +16,7 @@ void generatedPrimes(){
 		}
 		for (int j = 1; j <= sieve[i] && i * primes[j] <= LIMIT; j++){
 	    	sieve[ i * primes[j] ] = j;
-		} 
+		}
 	}
 }
 

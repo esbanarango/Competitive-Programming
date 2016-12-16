@@ -1,9 +1,2 @@
 */*.in
 */*.out
-Uva/*
-!Uva/*.cpp
-!Uva/*.c
-HackerRank/*
-!HackerRank/*.cpp
-!HackerRank/*.c
-!HackerRank/*.rb

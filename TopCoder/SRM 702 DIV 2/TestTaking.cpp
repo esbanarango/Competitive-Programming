@@ -17,7 +17,6 @@
 #include <bitset>
 #include <cmath>
 #include <queue>
-#include <tuple>
 #include <deque>
 #include <stack>
 #include <list>
@@ -37,11 +36,23 @@ typedef map <string,vs> msvs;
 typedef map <string,int> msi;
 typedef map <string,string> mss;
 #define INF 1000000000
+using namespace std;
+
+class TestTaking {
+  public:
+  int findMax(int questions, int guessed, int actual) {
+    return min(questions - guessed, questions - actual) + min(actual, guessed);
+  //   if(guessed == actual)
+  //     return questions;
+  //   else{
+
+  //     return abs(abs(actual-guessed)-questions);
+  //   }
+  }
+};
 
 int main(){
-  freopen("in.in", "r", stdin);
-  freopen("out.out", "w", stdout);
-
- return 0;
-
+  TestTaking test_taking;
+  cout<<test_taking.findMax(50,49,0);
+  return 0;
 }

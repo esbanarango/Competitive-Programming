@@ -17,7 +17,6 @@
 #include <bitset>
 #include <cmath>
 #include <queue>
-#include <tuple>
 #include <deque>
 #include <stack>
 #include <list>
@@ -38,10 +37,18 @@ typedef map <string,int> msi;
 typedef map <string,string> mss;
 #define INF 1000000000
 
-int main(){
-  freopen("in.in", "r", stdin);
-  freopen("out.out", "w", stdout);
-
- return 0;
-
+int main() {
+  // freopen("in.in", "r", stdin);
+  vi tring1(3), tring2(3);
+  scanf("%d %d %d",&tring1[0], &tring1[1], &tring1[2]);
+  scanf("%d %d %d",&tring2[0], &tring2[1], &tring2[2]);
+  sort(tring1.begin(), tring1.end());
+  sort(tring2.begin(), tring2.end());
+  bool result = ((tring1[2] * tring1[2]) == (tring1[0] * tring1[0]) + (tring1[1] * tring1[1]));
+  if(result && tring1[0] == tring2[0] && tring1[1] == tring2[1] && tring1[2] == tring2[2]){
+    printf("YES\n");
+  }else{
+    printf("NO\n");
+  }
+  return 0;
 }

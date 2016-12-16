@@ -39,9 +39,19 @@ typedef map <string,string> mss;
 #define INF 1000000000
 
 int main(){
-  freopen("in.in", "r", stdin);
-  freopen("out.out", "w", stdout);
+  // freopen("in.in", "r", stdin);
+  int n,a,b;
+  string airports;
+  scanf("%d %d %d\n",&n,&a,&b);
+  a--;b--;
 
- return 0;
+  cin>>airports;
 
+  if(airports[a] == airports[b]){
+    printf("0\n");
+  }else{
+    printf("1\n");
+  }
+
+  return 0;
 }

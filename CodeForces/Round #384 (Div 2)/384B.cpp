@@ -38,10 +38,22 @@ typedef map <string,int> msi;
 typedef map <string,string> mss;
 #define INF 1000000000
 
+ll solve(ll n, ll k){
+  ll middle = (ll)pow(2, n) / 2;
+  if(k == middle){
+    return n;
+  }else{
+    if(k > middle)
+      k -= middle;
+    n--;
+    return solve(n,k);
+  }
+}
+
 int main(){
-  freopen("in.in", "r", stdin);
-  freopen("out.out", "w", stdout);
-
- return 0;
-
+  // freopen("in.in", "r", stdin);
+  ll n,k;
+  cin>>n>>k;
+  cout<<solve(n,k)<<endl;
+  return 0;
 }
