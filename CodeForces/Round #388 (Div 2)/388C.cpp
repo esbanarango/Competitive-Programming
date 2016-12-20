@@ -39,8 +39,33 @@ typedef map <string,string> mss;
 #define INF 1000000000
 
 int main(){
-  freopen("in.in", "r", stdin);
-  freopen("out.out", "w", stdout);
-
+  // freopen("in.in", "r", stdin);
+  // freopen("out.out", "w", stdout);
+  int n; scanf("%d",&n);
+  int ds = 0, rs = 0, vd = 0, vr = 0;
+  string s;
+  cin>>s;
+  for (int i = 0; i < n; ++i){
+    (s[i] == 'D') ? ds++ : rs++;
+  }
+  while(ds > 0 && rs > 0){
+    for (int i = 0; i < n; ++i){
+      // cout<<"Evaluating: "<<s[i]<<"RS & VR: "<<rs<<","<<vr<<". DS & VD"<<ds<<","<<vd<<endl;
+      if(s[i] == 'X') continue;
+      // Depublicans
+      if(s[i] == 'D' && vr > 0){
+        vr--; ds--; s[i] = 'X';
+      }else if(s[i] == 'D'){
+        vd++;
+      }else if(s[i] == 'R' && vd > 0){
+        // Remocrats
+        vd--; rs--; s[i] = 'X';
+      }else{
+        vr++;
+      }
+    }
+  }
+  // cout<<"RS: "<<rs<<" DS"<<ds<<endl;
+  (rs > 0) ? printf("R\n") : printf("D\n") ;
   return 0;
 }
