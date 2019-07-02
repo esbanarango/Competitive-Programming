@@ -31,6 +31,6 @@ int main(){
 			total += get(&tree,inv[i]-1);
 			add(&tree,inv[i],1);
 		}
-	}	
+	}
     return 0;
 }
