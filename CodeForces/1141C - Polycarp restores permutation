@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define pb push_back
+int main(){
+	int n,max = 0,i,num;
+	vector <int> ar;
+	map <int, int> mp;
+	cin>>n;
+	ar.pb(0);
+	mp.insert({0,1});
+	for(int i=1;i<n;i++){
+		cin>>num;
+		if(ar[i-1]+num>max)
+		{max=num+ar[i-1];
+		//	maxp=i;
+		}
+		if(mp.find(ar[i-1]+num)==mp.end())
+		{
+		ar.pb(ar[i-1]+num);
+		mp.insert(pair<int, int>(ar[i-1]+num,1));
+		}
+		else
+		{
+		cout<<-1;return 0;
+		}
+	}
+	
+	for(i=0;i<n;i++){
+		ar[i]+=n-max;
+		if(ar[i]<1||ar[i]>n){
+			cout<<-1;
+			return 0;
+		}
+	}
+	for(i=0;i<n;i++)
+		cout<<ar[i]<<' ';
+ 
+	return 0;
+}
