@@ -41,5 +41,21 @@ typedef map <string,string> mss;
 int main(){
   // freopen("in.in", "r", stdin);
   // freopen("out.out", "w", stdout);
+  ll T, a, b, tmp, ans;
+  scanf("%lld\n",&T);
+  while(T--) {
+    ans = 0;
+    scanf("%lld %lld\n",&a,&b);
+    if(a == b) { cout<<ans<<endl; continue; }
+    if(a > b) { swap(a,b); }
+    tmp = b - a;
+
+    ans += tmp/5; tmp %= 5;
+    ans += tmp/2; tmp %= 2;
+    ans += tmp/1; tmp %= 1;
+
+    cout<<ans<<endl;
+  }
+
   return 0;
 }

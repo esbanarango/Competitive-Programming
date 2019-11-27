@@ -41,5 +41,30 @@ typedef map <string,string> mss;
 int main(){
   // freopen("in.in", "r", stdin);
   // freopen("out.out", "w", stdout);
+  int T, n, m, ans;
+  scanf("%d\n",&T);
+  while(T--) {
+    ans = 0;
+    scanf("%d %d\n",&n,&m);
+    vii a(n);
+    for(int i = 1; i <= n; i++) {
+      ii fridge = {0, i};
+      cin>>fridge.first;
+      a[i-1] = fridge;
+    }
+    if(n>m || n == 2) { cout<<"-1"<<endl; continue; }
+    sort(a.begin(), a.end());
+    // Connect them all
+    ans += a[0].first + a[n-1].first;
+    for(int i = 1; i < n; i++) { ans += a[i-1].first + a[i].first; }
+    // Remaining chains
+    int missing = m - n;
+    ans += (a[0].first + a[1].first) * missing;
+    cout<<ans<<endl;
+
+    for(int i = 1; i < n; i++) { cout<< a[i-1].second<<" "<<a[i].second<<endl; }
+    cout<<a[n-1].second<<" "<<a[0].second<<endl;
+    for(int i = 0; i < missing; i++) { cout<<a[0].second<<" "<<a[1].second<<endl; }
+  }
   return 0;
 }
