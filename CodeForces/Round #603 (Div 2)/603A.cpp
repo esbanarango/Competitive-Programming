@@ -42,10 +42,23 @@ typedef map <string,string> mss;
 #define printMatrix(mat) for(auto x: mat) { cout<<" "; printArray(x); cout<<endl; }
 #define printMap(mmap) for(auto p: mmap) { cout<< p.first<<": "<<p.second<<endl; }
 
+
 int main(){
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL); cout.tie(NULL);
   // freopen("in.in", "r", stdin);
   // freopen("out.out", "w", stdout);
+  ll T, N;
+  scanf("%lld\n",&T);
+  while(T--) {
+    vi nums(3);
+    for(int i = 0; i<3; i++) { cin>>nums[i]; }
+    sort(begin(nums), end(nums));
+    // printArray(nums);
+    if(nums[2] >= nums[1] + nums[0]){
+      cout<<nums[1] + nums[0]<<endl;
+    } else {
+      int toEat = (nums[1] + nums[0])-nums[2];
+      cout<<(nums[1] + nums[0] - toEat) + toEat/2<<endl;
+    }
+  }
   return 0;
 }

@@ -24,7 +24,7 @@
 #include <map>
 #include <set>
 using namespace std;
-typedef long long ll;
+typedef unsigned long long ll;
 typedef pair<int,int> ii;
 typedef pair<string,int> si;
 typedef pair<int,ii> iii;
@@ -42,10 +42,14 @@ typedef map <string,string> mss;
 #define printMatrix(mat) for(auto x: mat) { cout<<" "; printArray(x); cout<<endl; }
 #define printMap(mmap) for(auto p: mmap) { cout<< p.first<<": "<<p.second<<endl; }
 
-int main(){
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL); cout.tie(NULL);
+int main() {
   // freopen("in.in", "r", stdin);
-  // freopen("out.out", "w", stdout);
-  return 0;
+  ll n, x, a;
+  scanf("%lld %lld %lld\n", &n, &x, &a);
+  ll ans = (ll)ceil((n*x) / (double)a);
+  ll perUsb = (ll)floor(a / (double)x);
+  // How many are missing EX. 10 2 3
+  // The ones missing divided by the ones I can fit in one USD
+  if( perUsb * ans < n ){ ans += (ll)ceil((n - (perUsb * ans)) / (double)perUsb) ; }
+  printf("%lld\n", ans);
 }

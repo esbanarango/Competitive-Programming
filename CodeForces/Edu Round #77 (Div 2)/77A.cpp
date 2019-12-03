@@ -37,15 +37,33 @@ typedef map <string,vs> msvs;
 typedef map <string,int> msi;
 typedef map <string,string> mss;
 #define INF 1000000000
-#define deb(x) cout<<#x<<": "<<x<<endl;
-#define printArray(arr) for(auto x: arr) { cout<<x<<", "; }
-#define printMatrix(mat) for(auto x: mat) { cout<<" "; printArray(x); cout<<endl; }
-#define printMap(mmap) for(auto p: mmap) { cout<< p.first<<": "<<p.second<<endl; }
 
-int main(){
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL); cout.tie(NULL);
+int main() {
   // freopen("in.in", "r", stdin);
-  // freopen("out.out", "w", stdout);
+
+  ll N, C, SUM;
+  scanf("%lld\n",&N);
+
+  while(N--) {
+    ll ans = 0;
+    scanf("%lld %lld\n",&C,&SUM);
+    if(C >= SUM) {
+      cout<<SUM<<endl;
+      continue;
+    }
+    ll sim = SUM/C;
+    ll first = (SUM - (sim * C));
+    ll rem = SUM%C;
+
+    if(rem == 0){
+      ans = (C * (sim * sim));
+    } else {
+      ll toAdd = rem / first;
+
+      ans = ((C - first) * (sim * sim)) + (first * ((sim + toAdd) * (sim + toAdd)));
+    }
+    cout<<ans<<endl;
+  }
+
   return 0;
 }
