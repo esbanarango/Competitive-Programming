@@ -34,15 +34,11 @@ typedef vector <int> vi;
 typedef vector <char> vc;
 typedef vector <string> vs;
 typedef map <string,vs> msvs;
-typedef map <string,int> msi;
 typedef map <int,int> mii;
+typedef map <string,int> msi;
 typedef map <string,string> mss;
-#define rep(i,a,n) for (int i=a;i<n;i++)
-#define per(i,a,n) for (int i=n-1;i>=a;i--)
-#define pb push_back
-#define mp make_pair
-#define endl '\n' // Normal `cout << endl` flushes the output every time wich hit performance badly
 #define INF 1000000000
+#define endl '\n' // Normal `cout << endl` flushes the output every time wich hit performance badly
 #define deb(x) cout<<#x<<": "<<x<<endl;
 #define printArray(arr) for(auto x: arr) { cout<<x<<", "; }
 #define printMatrix(mat) for(auto x: mat) { cout<<" "; printArray(x); cout<<endl; }
@@ -53,5 +49,23 @@ int main(){
   cin.tie(NULL);
   // freopen("in.in", "r", stdin);
   // freopen("out.out", "w", stdout);
+  ll T, N;
+  cin>>T;
+  while(T--) {
+    cin>>N;
+    vi P(N);
+    mii positions;
+    string ans (N, '0');
+    ans[0] = ans[N-1] = '1';
+    int onePosition;
+    for(int i = 0; i < N; i++) { cin>>P[i]; positions[P[i]] = i; }
+    int l = positions[1], r = positions[1];
+    for(int i = 2; i <= N; i++){
+      l = min(l, positions[i]);
+      r = max(r, positions[i]);
+      if(r - l + 1 == i) { ans[i-1] = '1'; } // That range should all i numbers
+    }
+    cout<<ans<<endl;
+  }
   return 0;
 }

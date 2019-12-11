@@ -35,13 +35,7 @@ typedef vector <char> vc;
 typedef vector <string> vs;
 typedef map <string,vs> msvs;
 typedef map <string,int> msi;
-typedef map <int,int> mii;
 typedef map <string,string> mss;
-#define rep(i,a,n) for (int i=a;i<n;i++)
-#define per(i,a,n) for (int i=n-1;i>=a;i--)
-#define pb push_back
-#define mp make_pair
-#define endl '\n' // Normal `cout << endl` flushes the output every time wich hit performance badly
 #define INF 1000000000
 #define deb(x) cout<<#x<<": "<<x<<endl;
 #define printArray(arr) for(auto x: arr) { cout<<x<<", "; }
@@ -53,5 +47,18 @@ int main(){
   cin.tie(NULL);
   // freopen("in.in", "r", stdin);
   // freopen("out.out", "w", stdout);
+
+  int K, N, M, X, Y;
+  while(cin>>K) {
+    cin>>N>>M; // Division point
+    while(K--){
+      cin>>X>>Y;
+      if(N==X || M==Y) { cout<<"divisa"<<endl; continue; }
+      if(X > N && Y > M) { cout<<"NE"<<endl; continue; }
+      if(X < N && Y > M) { cout<<"NO"<<endl; continue; }
+      if(X < N && Y < M) { cout<<"SO"<<endl; continue; }
+      if(X > N && Y < M) { cout<<"SE"<<endl; continue; }
+    }
+  }
   return 0;
 }
