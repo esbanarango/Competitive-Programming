@@ -35,6 +35,7 @@ typedef vector <char> vc;
 typedef vector <string> vs;
 typedef map <string,vs> msvs;
 typedef map <string,int> msi;
+typedef map <char,int> mci;
 typedef map <int,int> mii;
 typedef map <string,string> mss;
 #define rep(i,a,n) for (int i=a;i<n;i++)
