@@ -48,7 +48,7 @@ typedef map <string,string> mss;
 #define deb(x) cout<<#x<<": "<<x<<endl;
 #define printArray(arr) for(auto x: arr) { cout<<x<<", "; }
 #define printMatrix(mat) for(auto x: mat) { cout<<" "; printArray(x); cout<<endl; }
-#define printMap(mmap) for(auto p: mmap) { cout<< p.first<<": "<<p.second<<endl; }
+
 
 int main(){
   ios_base::sync_with_stdio(false); cin.tie(NULL); // Fast input
@@ -57,9 +57,27 @@ int main(){
     // freopen("out.out", "w", stdout);
   #endif
 
-  int T = 1; //cin>>T;
-  while(T--) {
-
+  int T; cin>>T;
+  while(T--){
+    int n, m;
+    ll total = 0;
+    cin>>n>>m;
+    vi A(n), B(m);
+    mii positions;
+    rep(i, 0, n) { cin>>A[i]; positions[A[i]] = i;}
+    rep(j, 0, m) { cin>>B[j]; }
+    int farPosition = -1;
+    rep(j, 0, m) {
+      int curPosition = positions[B[j]];
+      if(farPosition > curPosition){ // I have seen it already
+        total++;
+      } else {
+        int moves = (curPosition * 2) + 1 - (j * 2);
+        total+= moves;
+      }
+      farPosition = max(farPosition, curPosition);
+    }
+    cout<<total<<endl;
   }
   return 0;
 }

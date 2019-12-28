@@ -40,7 +40,6 @@ typedef map <int,int> mii;
 typedef map <string,string> mss;
 #define rep(i,a,n) for (int i=a;i<n;i++)
 #define per(i,a,n) for (int i=n-1;i>=a;i--)
-#define all(x) (x).begin(), (x).end()
 #define pb push_back
 #define mp make_pair
 #define endl '\n' // Normal `cout << endl` flushes the output every time wich hit performance badly
@@ -51,15 +50,43 @@ typedef map <string,string> mss;
 #define printMap(mmap) for(auto p: mmap) { cout<< p.first<<": "<<p.second<<endl; }
 
 int main(){
-  ios_base::sync_with_stdio(false); cin.tie(NULL); // Fast input
-  #ifdef LOCAL_PROJECT
-    freopen("in.in", "r", stdin);
-    // freopen("out.out", "w", stdout);
-  #endif
-
-  int T = 1; //cin>>T;
-  while(T--) {
-
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+  // freopen("in.in", "r", stdin);
+  // freopen("out.out", "w", stdout);
+  int T; cin>>T;
+  while(T--){
+    ll n, s, total = 0, sum = 0, maxSoFar = 0, toRemove, totalGirst = 0, totalGirstRe = 0;
+    cin>>n>>s;
+    vi verses(n);
+    rep(i,0,n) { cin>>verses[i]; total += verses[i]; }
+    if(total <= s) { cout<<0<<endl; continue; }
+    // sum = 0
+    bool removed = false;
+    rep(i,0,n) {
+      sum += verses[i];
+      if(sum > s && removed) { break;}
+      if(verses[i] > maxSoFar){
+        maxSoFar = verses[i];
+        toRemove = i + 1;
+      }
+      if(sum > s) {
+        sum -= maxSoFar;
+        totalGirstRe = totalGirst;
+        removed= true;
+      } else{
+        if(!removed){
+          totalGirst++;
+        } else{
+          totalGirstRe++;
+        }
+      }
+    }
+    if(totalGirstRe > totalGirst){
+      cout<<toRemove<<endl;
+    } else {
+      cout<<0<<endl;
+    }
   }
   return 0;
 }

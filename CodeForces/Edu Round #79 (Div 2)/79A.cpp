@@ -57,9 +57,13 @@ int main(){
     // freopen("out.out", "w", stdout);
   #endif
 
-  int T = 1; //cin>>T;
+  int T; cin>>T;
   while(T--) {
-
+    vector<ll> colors(3);
+    cin>>colors[0]>>colors[1]>>colors[2];
+    sort(all(colors));
+    (colors[0] + colors[1] + 1 >= colors[2]) ? cout<<"Yes" : cout<<"No";
+    cout<<endl;
   }
   return 0;
 }
