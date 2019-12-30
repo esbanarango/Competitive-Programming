@@ -24,6 +24,10 @@
 #include <map>
 #include <set>
 using namespace std;
+
+using ll=long long;
+#define int ll
+
 typedef long long ll;
 typedef pair<int,int> ii;
 typedef pair<string,int> si;
@@ -50,7 +54,7 @@ typedef map <string,string> mss;
 #define printMatrix(mat) for(auto x: mat) { cout<<" "; printArray(x); cout<<endl; }
 #define printMap(mmap) for(auto p: mmap) { cout<< p.first<<": "<<p.second<<endl; }
 
-int main(){
+signed main(){
   ios_base::sync_with_stdio(false); cin.tie(NULL); // Fast input
   #ifdef LOCAL_PROJECT
     freopen("in.in", "r", stdin);
@@ -59,7 +63,6 @@ int main(){
 
   int T = 1; //cin>>T;
   while(T--) {
-
   }
   return 0;
 }
