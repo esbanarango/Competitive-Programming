@@ -61,9 +61,13 @@ signed main(){
     // freopen("out.out", "w", stdout);
   #endif
 
-  int T = 1; //cin>>T;
+  int T; cin>>T;
   while(T--) {
-
+    double x, y;
+    cin>>y>>x;
+    double increased = y*(x/100.0);
+    double newY = y + increased;
+    cout<<(int)ceil(((y*100.0 / newY) / 100.0)*y)<<endl;
   }
   return 0;
 }

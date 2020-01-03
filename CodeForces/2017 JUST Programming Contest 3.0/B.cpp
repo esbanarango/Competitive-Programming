@@ -61,9 +61,21 @@ signed main(){
     // freopen("out.out", "w", stdout);
   #endif
 
-  int T = 1; //cin>>T;
+  int T; cin>>T;
   while(T--) {
-
+    mii R, C;
+    int n, a, b, total = 0;
+    cin>>n;
+    rep(i, 0, n) {
+      cin>>a>>b;
+      R[a]++; C[b]++;
+    }
+    for(auto p: R){
+      if(C[p.first]){
+        total += C[p.first] * p.second;
+      }
+    }
+    cout<<total<<endl;
   }
   return 0;
 }
