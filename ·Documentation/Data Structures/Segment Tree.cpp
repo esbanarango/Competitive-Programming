@@ -14,7 +14,7 @@ void st_build(vi &st, const vi &A, int vertex, int L, int R) {
   if (L == R)                              // as L == R, either one is fine
     st[vertex] = L;                                      // store the index
   else {   // recursively compute the values in the left and right subtrees
-    int nL = 2 * vertex, nR = 2 * vertex + 1;
+    int nL = vertex<<1, nR = (vertex<<1)+1;
     st_build(st, A, nL, L              , (L + R) / 2);
     st_build(st, A, nR, (L + R) / 2 + 1, R          );
     int lContent = st[nL]     , rContent = st[nR];
@@ -50,7 +50,7 @@ int st_update_point(vi &st, vi &A, int node, int b, int e, int idx, int new_valu
   // must be able to update range in the future!
   int i = idx, j = idx;
 
-  // if the current interval does not intersect 
+  // if the current interval does not intersect
   // the update interval, return this st node value!
   if (i > e || j < b)
     return st[node];
@@ -62,7 +62,7 @@ int st_update_point(vi &st, vi &A, int node, int b, int e, int idx, int new_valu
     return st[node] = b; // this index
   }
 
-  // compute the minimum position in the 
+  // compute the minimum position in the
   // left and right part of the interval
   int p1, p2;
   p1 = st_update_point(st, A, 2 * node    , b              , (b + e) / 2, idx, new_value);
