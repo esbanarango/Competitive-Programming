@@ -1,7 +1,29 @@
 /*
   Esteban Arango Medina
 */
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
+#include <iterator>
+#include <numeric>
+#include <sstream>
+#include <fstream>
+#include <cassert>
+#include <climits>
+#include <cstdlib>
+#include <cstring>
+#include <string>
+#include <cstdio>
+#include <vector>
+#include <bitset>
+#include <cmath>
+#include <queue>
+#include <tuple>
+#include <deque>
+#include <stack>
+#include <list>
+#include <map>
+#include <set>
+using namespace std;
 
 using ll=long long;
 #define int ll
@@ -26,8 +48,9 @@ typedef map <string,string> mss;
 #define pb push_back
 #define mp make_pair
 #define endl '\n' // Normal `cout << endl` flushes the output every time wich hit performance badly
+#define INF 1000000000
 #define deb(x) cout<<#x<<": "<<x<<endl;
-#define printArray(arr) for(auto x: arr) { cout<<x<<" "; }
+#define printArray(arr) for(auto x: arr) { cout<<x<<", "; }
 #define printMatrix(mat) for(auto x: mat) { cout<<" "; printArray(x); cout<<endl; }
 #define printMap(mmap) for(auto p: mmap) { cout<< p.first<<": "<<p.second<<endl; }
 
@@ -40,7 +63,22 @@ signed main(){
 
   int T = 1; //cin>>T;
   while(T--) {
-
+    int n; cin>>n;
+    vector<vi> plan(n, vi(3, 0));
+    vector<vi> DP(n, vi(3, 0));
+    int a, b, c;
+    rep(i, 0, n) {
+      cin>>plan[i][0]>>plan[i][1]>>plan[i][2];
+    }
+    DP[0][0] = plan[0][0];
+    DP[0][1] = plan[0][1];
+    DP[0][2] = plan[0][2];
+    rep(i, 1, n) {
+      DP[i][0] = plan[i][0] + max(DP[i-1][1],DP[i-1][2]);
+      DP[i][1] = plan[i][1] + max(DP[i-1][2],DP[i-1][0]);
+      DP[i][2] = plan[i][2] + max(DP[i-1][1],DP[i-1][0]);
+    }
+    cout<<max(DP[n-1][0], max(DP[n-1][1], DP[n-1][2]));
   }
   return 0;
 }

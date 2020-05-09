@@ -1,7 +1,29 @@
 /*
   Esteban Arango Medina
 */
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
+#include <iterator>
+#include <numeric>
+#include <sstream>
+#include <fstream>
+#include <cassert>
+#include <climits>
+#include <cstdlib>
+#include <cstring>
+#include <string>
+#include <cstdio>
+#include <vector>
+#include <bitset>
+#include <cmath>
+#include <queue>
+#include <tuple>
+#include <deque>
+#include <stack>
+#include <list>
+#include <map>
+#include <set>
+using namespace std;
 
 using ll=long long;
 #define int ll
@@ -26,8 +48,9 @@ typedef map <string,string> mss;
 #define pb push_back
 #define mp make_pair
 #define endl '\n' // Normal `cout << endl` flushes the output every time wich hit performance badly
+#define INF 1000000000
 #define deb(x) cout<<#x<<": "<<x<<endl;
-#define printArray(arr) for(auto x: arr) { cout<<x<<" "; }
+#define printArray(arr) for(auto x: arr) { cout<<x<<", "; }
 #define printMatrix(mat) for(auto x: mat) { cout<<" "; printArray(x); cout<<endl; }
 #define printMap(mmap) for(auto p: mmap) { cout<< p.first<<": "<<p.second<<endl; }
 
@@ -38,8 +61,23 @@ signed main(){
     // freopen("out.out", "w", stdout);
   #endif
 
-  int T = 1; //cin>>T;
+  int T = 1; cin>>T;
   while(T--) {
+    int n, a, b, c, d;
+    cin>>n>>a>>b>>c>>d;
+    int lG = a - b;
+    int rG = a + b;
+
+    int lT = c - d;
+    int rT = c + d;
+
+
+    if(lG*n <= rT && lG*n >= lT) { cout<<"YES"<<endl; continue; }
+    if(rG*n <= rT && rG*n >= lT) { cout<<"YES"<<endl; continue; }
+
+    if((1.0 *rT / n) <= 1.0 *rG && (1.0 *rT / n) >= 1.0 *lG) { cout<<"YES"<<endl; continue; }
+    if((1.0 *lT / n) <= 1.0 *rG && (1.0 *lT / n) >= 1.0 *lG) { cout<<"YES"<<endl; continue; }
+    cout<<"NO"<<endl;
 
   }
   return 0;

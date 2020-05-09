@@ -1,7 +1,29 @@
 /*
   Esteban Arango Medina
 */
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
+#include <iterator>
+#include <numeric>
+#include <sstream>
+#include <fstream>
+#include <cassert>
+#include <climits>
+#include <cstdlib>
+#include <cstring>
+#include <string>
+#include <cstdio>
+#include <vector>
+#include <bitset>
+#include <cmath>
+#include <queue>
+#include <tuple>
+#include <deque>
+#include <stack>
+#include <list>
+#include <map>
+#include <set>
+using namespace std;
 
 using ll=long long;
 #define int ll
@@ -26,10 +48,15 @@ typedef map <string,string> mss;
 #define pb push_back
 #define mp make_pair
 #define endl '\n' // Normal `cout << endl` flushes the output every time wich hit performance badly
+#define INF 1000000000
 #define deb(x) cout<<#x<<": "<<x<<endl;
-#define printArray(arr) for(auto x: arr) { cout<<x<<" "; }
+#define printArray(arr) for(auto x: arr) { cout<<x<<", "; }
 #define printMatrix(mat) for(auto x: mat) { cout<<" "; printArray(x); cout<<endl; }
 #define printMap(mmap) for(auto p: mmap) { cout<< p.first<<": "<<p.second<<endl; }
+
+int modulo(int x,int N){
+  return (x % N + N) %N;
+}
 
 signed main(){
   ios_base::sync_with_stdio(false); cin.tie(NULL); // Fast input
@@ -38,8 +65,21 @@ signed main(){
     // freopen("out.out", "w", stdout);
   #endif
 
-  int T = 1; //cin>>T;
+  int T = 1; cin>>T;
   while(T--) {
+    int n; cin>>n;
+    vi rooms(n);
+    rep(i, 0, n) { cin>>rooms[i]; }
+    bool valid = true;
+    rep(i, 1, n) {
+      if(abs(rooms[i] - rooms[i-1]) == 1) { valid = false; break;}
+    }
+    if(valid) {
+      cout<<"YES"<<endl;
+    } else {
+      cout<<"NO"<<endl;
+    }
+
 
   }
   return 0;

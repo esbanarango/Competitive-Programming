@@ -1,7 +1,29 @@
 /*
   Esteban Arango Medina
 */
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
+#include <iterator>
+#include <numeric>
+#include <sstream>
+#include <fstream>
+#include <cassert>
+#include <climits>
+#include <cstdlib>
+#include <cstring>
+#include <string>
+#include <cstdio>
+#include <vector>
+#include <bitset>
+#include <cmath>
+#include <queue>
+#include <tuple>
+#include <deque>
+#include <stack>
+#include <list>
+#include <map>
+#include <set>
+using namespace std;
 
 using ll=long long;
 #define int ll
@@ -26,6 +48,7 @@ typedef map <string,string> mss;
 #define pb push_back
 #define mp make_pair
 #define endl '\n' // Normal `cout << endl` flushes the output every time wich hit performance badly
+#define INF 1000000000
 #define deb(x) cout<<#x<<": "<<x<<endl;
 #define printArray(arr) for(auto x: arr) { cout<<x<<" "; }
 #define printMatrix(mat) for(auto x: mat) { cout<<" "; printArray(x); cout<<endl; }
@@ -38,8 +61,32 @@ signed main(){
     // freopen("out.out", "w", stdout);
   #endif
 
-  int T = 1; //cin>>T;
+  int T = 1; cin>>T;
   while(T--) {
+    int n, k; cin>>n>>k;
+    if(k > n) { cout<<"NO"<<endl; continue; }
+    if(n%k == 0) {
+      cout<<"YES"<<endl;
+      int ans = n/k;
+      rep(i, 0, k) { cout<<ans<<" "; }
+      cout<<endl;
+    } else {
+      int odd = (n - (k-1));
+      int even = (n - (2 *(k-1)));
+      // deb(odd);deb(even);
+      if(odd > 0 && odd % 2 != 0){
+        cout<<"YES"<<endl;
+        cout<<odd<<" ";
+        rep(i, 0, k-1) { cout<<1<<" "; }
+      }else if(even > 0 && even % 2 == 0){
+        cout<<"YES"<<endl;
+        cout<<even<<" ";
+        rep(i, 0, k-1) { cout<<2<<" "; }
+      } else{
+        cout<<"NO";
+      }
+      cout<<endl;
+    }
 
   }
   return 0;

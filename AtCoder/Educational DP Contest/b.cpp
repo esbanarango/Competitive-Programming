@@ -1,7 +1,29 @@
 /*
   Esteban Arango Medina
 */
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
+#include <iterator>
+#include <numeric>
+#include <sstream>
+#include <fstream>
+#include <cassert>
+#include <climits>
+#include <cstdlib>
+#include <cstring>
+#include <string>
+#include <cstdio>
+#include <vector>
+#include <bitset>
+#include <cmath>
+#include <queue>
+#include <tuple>
+#include <deque>
+#include <stack>
+#include <list>
+#include <map>
+#include <set>
+using namespace std;
 
 using ll=long long;
 #define int ll
@@ -26,12 +48,13 @@ typedef map <string,string> mss;
 #define pb push_back
 #define mp make_pair
 #define endl '\n' // Normal `cout << endl` flushes the output every time wich hit performance badly
+#define INF 1000000000
 #define deb(x) cout<<#x<<": "<<x<<endl;
-#define printArray(arr) for(auto x: arr) { cout<<x<<" "; }
+#define printArray(arr) for(auto x: arr) { cout<<x<<", "; }
 #define printMatrix(mat) for(auto x: mat) { cout<<" "; printArray(x); cout<<endl; }
 #define printMap(mmap) for(auto p: mmap) { cout<< p.first<<": "<<p.second<<endl; }
 
-signed main(){
+signed main() {
   ios_base::sync_with_stdio(false); cin.tie(NULL); // Fast input
   #ifdef LOCAL_PROJECT
     freopen("in.in", "r", stdin);
@@ -40,7 +63,22 @@ signed main(){
 
   int T = 1; //cin>>T;
   while(T--) {
-
+    int n, k; cin>>n>>k;
+    vi stones(n);
+    rep(i,0, n) { cin>>stones[i]; }
+    vi DP(n, 0);
+    DP[0] = 0;
+    DP[1] = abs(stones[0] - stones[1]);
+    rep(i,2,n) {
+      int minSteps = INT_MAX;
+      int j = 1;
+      while(j <= k && i - j >= 0) {
+        minSteps = min(minSteps, DP[i-j] + abs(stones[i] - stones[i-j]));
+        j++;
+      }
+      DP[i] = minSteps;
+    }
+    cout<<DP[n-1];
   }
   return 0;
 }
