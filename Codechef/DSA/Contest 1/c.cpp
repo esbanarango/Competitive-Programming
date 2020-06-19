@@ -31,7 +31,6 @@ typedef map <string,string> mss;
 #define printA(arr) for(auto x: arr) { cout<<x<<" "; }
 #define printMatrix(mat) for(auto x: mat) { cout<<" "; printA(x); cout<<endl; }
 #define printMap(mmap) for(auto p: mmap) { cout<< p.first<<": "<<p.second<<endl; }
-#define ROUNDNUM(x) ((int)(x + 0.5f))
 
 int posX[4] = {-1,0,1,0};
 int posY[4] = {0,1,0,-1};
@@ -43,9 +42,20 @@ signed main(){
     // freopen("out.out", "w", stdout);
   #endif
 
-  int T = 1; //cin>>T;
+  int T = 1; cin>>T;
   while(T--) {
-
+    string s; cin>>s;
+    int n = s.size();
+    mci first, second;
+    int middle = n / 2;
+    rep(i, 0, middle) { first[s[i]]++; }
+    if(n % 2 != 0) { middle++; }
+    rep(i, middle, n) { second[s[i]]++; }
+    if(first == second){
+      cout<<"YES"<<endl;
+    } else {
+      cout<<"NO"<<endl;
+    }
   }
   return 0;
 }
